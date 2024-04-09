@@ -1,0 +1,45 @@
+﻿@model List<ThesisProject.Models.Card>
+
+@{
+	ViewData["Title"] = "Cards";
+}
+<div class="card__grid my-3">
+	@foreach (var item in Model)
+	{
+		<a asp-action="cardInfo" asp-route-id="@item.cardId">
+
+			<div class="article__item card button debitCard">
+				<div class="card-body flex flex-jc-sb">
+					<div>
+						<p class="" style="margin-bottom:3rem;">@item.cardName</p>
+						<div class="card-content">
+							<p class="article__description my-1">@Localizer["Card number"]</p>
+							<p>@string.Format("{0:#### #### #### ####}", item.cardNumber)</p>
+						</div>
+						<div class="flex flex-jc-sb">
+							<div>
+								<p class="article__description my-1">@Localizer["Expiry date"]</p>
+								<p>@item.expiryDate.ToString("MM/yy")</p>
+							</div>
+							<div>
+								<p class="article__description my-1">CVV</p>
+								<p>@item.cvv</p>
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<p style="margin-bottom:8.685rem;">@item.cardStatus</p>
+						<p class="m-0" style="text-align:right;">VISA</p>
+					</div>
+				</div>
+			</div>
+
+		</a>
+	}
+</div>
+@if (Model.Count() < 5)
+{
+	<a class="button btn btn-link p-2 m-2" asp-action="CreateCardi">
+		<svg class="bi"><use xlink:href="#plus-circle"></use></svg> @Localizer["Add new card"]
+	</a>
+}

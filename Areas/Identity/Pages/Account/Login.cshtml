@@ -1,0 +1,45 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="container w-25">
+    <section>
+        <form id="account" method="post">
+            <h2 class="article__title m-3 text-center">@Localizer["Welcome to EasyBank"]</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger article__description" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email" class="form-label">@Localizer["Email"]</label>
+                <span asp-validation-for="Input.Email" class="text-danger article__description"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.Password" class="form-label">@Localizer["Password"]</label>
+                <span asp-validation-for="Input.Password" class="text-danger article__description"></span>
+            </div>
+            <div class="checkbox mb-3">
+                <label asp-for="Input.RememberMe" class="form-label article__title">
+                    <input class="form-check-input" asp-for="Input.RememberMe" />
+                    @Localizer["RememberMe"]
+                </label>
+            </div>
+            <div>
+                <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary mb-1 article__title">@Localizer["Log in"]</button>
+            </div>
+            <div>
+                <p>
+                    <a id="forgot-password" asp-page="./ForgotPassword">@Localizer["Forgot your password?"]</a>
+                </p>
+            </div>
+        </form>
+    </section>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

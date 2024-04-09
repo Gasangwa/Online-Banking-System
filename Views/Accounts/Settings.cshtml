@@ -1,0 +1,35 @@
+﻿@model ThesisProject.Areas.Identity.Data.ThesisProjectUser
+
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<h2 class="article__title m-3">@Localizer["Settings"]</h2>
+<hr />
+<div>
+    <h3 class="article__title mx-3">@Localizer["Personal Data"]</h3>
+    <div class="m-2 card">
+        <div class="row card-body">
+            <p class="col-sm-2 article__title">@Localizer["Name and Surname"]</p>
+            <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.name) &nbsp; @Html.DisplayFor(model => model.surName)</p>
+            <p class="col-sm-2 article__title">@Localizer["Date of birth"]</p>
+            <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.DOB)</p>
+            <p class="col-sm-2 article__title">@Localizer["Phone number"]</p>
+            <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.PhoneNumber)</p>
+            <p class="col-sm-2 article__title">@Localizer["Email"]</p>
+            <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.Email)</p>
+            <p class="col-sm-2 article__title">@Localizer["Account status"]</p>
+            <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.accountStatus)</p>
+            <p class="col-sm-12 article__title text-center">@Localizer["Address"]</p>
+            <p class="col-sm-2 article__title">@Localizer["Street"]</p>
+            <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.street)</p>
+            <p class="col-sm-2 article__title">@Localizer["City"]</p>
+            <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.city)</p>
+            <p class="col-sm-2 article__title">@Localizer["State"]</p>
+            <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.state)</p>
+            <p class="col-sm-2 article__title">@Localizer["Postal code"]</p>
+            <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.postalCode)</p>
+        </div>
+        <a class=" w-25 btn btn-link m-2" asp-area="Identity" asp-page="/Account/Manage/Index">@Localizer["Manage your account"]</a>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿@model ThesisProject.Models.Card
+@{
+	ViewData["title"] = "CardInfo";
+}
+<div class="my-3 mx-5 w-50">
+	<div class="article__item card button debitCard">
+		<div class="card-body flex flex-jc-sb">
+			<div>
+				<p class="" style="margin-bottom:3rem;">@Model.cardName</p>
+				<div class="card-content">
+					<p class="article__description my-1">@Localizer["Card number"]</p>
+					<p>@string.Format("{0:#### #### #### ####}", Model.cardNumber)</p>
+				</div>
+				<div class="flex flex-jc-sb">
+					<div>
+						<p class="article__description my-1">@Localizer["Expiry date"]</p>
+						<p>@Model.expiryDate.ToString("MM/yy")</p>
+					</div>
+					<div>
+						<p class="article__description my-1">CVV</p>
+						<p>@Model.cvv</p>
+					</div>
+				</div>
+			</div>
+			<div class="">
+				<p style="margin-bottom:8.685rem;">@Model.cardStatus</p>
+				<p class="m-0" style="text-align:right;">VISA</p>
+			</div>
+		</div>
+	</div>
+	<div class="flex flex-jc-sb">
+		@if(Model.cardStatus == "Active")
+		{
+			<a class="button-reverse btn btn-link p-2 m-2" asp-action="FreezeCard" asp-route-id="@Model.cardId">
+				<i class="fa-regular fa-snowflake"></i> <p class="article__description">@Localizer["Freeze"]</p>
+			</a>
+
+			<a class="button-reverse btn btn-link p-2 m-2" asp-action="BuyWithCardi" asp-route-id="@Model.cardId">
+				<i class="fa-solid fa-bag-shopping"></i> <p class="article__description">@Localizer["Buy with Card"]</p>
+			</a>
+			<a class="button-reverse btn btn-link p-2 m-2" asp-action="DepositWithCard" asp-route-id="@Model.cardId">
+				<i class="fa-solid fa-money-bill"></i> <p class="article__description">@Localizer["Deposit with Card"]</p>
+			</a>
+		}
+		else
+		{
+			<a class="button-reverse btn btn-link p-2 m-2" asp-action="UnfreezeCard" asp-route-id="@Model.cardId">
+				<i class="fa-regular fa-sun"></i> <p class="article__description">@Localizer["Unfreeze"]</p>
+			</a>
+		}
+		<a class="button-reverse btn btn-link p-2 m-2" asp-action="DeleteCard" asp-route-id="@Model.cardId">
+			<i class="fa-solid fa-trash"></i> <p class="article__description">@Localizer["Terminate Card"]</p>
+		</a>
+	</div>
+
+</div>

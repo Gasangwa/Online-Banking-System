@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ThesisProject.Models.Account>
+
+@{
+    ViewData["Title"] = "Accounts";
+}
+@if ((Model.FirstOrDefault(m => m.accountType == "Current")) != null)
+{
+    <h1 class="article__title mt-3">@Localizer["Current account"]</h1>
+    <hr />
+}
+<div class="article__grid my-3">
+    @foreach (var item in Model)
+    {
+        if (item.accountType != "Saving")
+        {
+            <a class="article__item card" asp-action="Details" asp-route-id="@item.accountId">
+                <div class="card-body flex flex-jc-sb">
+                    <div>
+                        <h2 class="article__title">@Html.DisplayFor(modelItem => item.accountName)</h2>
+                        <h3 class="article__title">@Html.DisplayFor(modelItem => item.accountType)</h3>
+                        <h5 class="article__author">@Html.DisplayFor(modelItem => item.currencyType)</h5>
+                        @if (item.accountType.ToUpper() == "SAVING")
+                        {
+
+                        }
+                    </div>
+                    @if (item.currencyType == "Zloty")
+                    {
+                        <p><i class="fa-solid fa-coins mx-2"></i>@item.amount.Value.ToString("C", new System.Globalization.CultureInfo("pl-PL"))</p>
+                    }
+                    else if (item.currencyType == "Eur")
+                    {
+                        <p><i class="fa-solid fa-coins mx-2"></i>@item.amount.Value.ToString("C", new System.Globalization.CultureInfo("eu-EU"))</p>
+                    }
+                    else
+                    {
+                        <p><i class="fa-solid fa-coins mx-2"></i>@item.amount.Value.ToString("C", new System.Globalization.CultureInfo("en-US"))</p>
+                    }
+                </div>
+            </a>
+        }
+    }
+</div>
+@if((Model.FirstOrDefault(m => m.accountType == "Saving")) != null)
+{
+    <h1 class="article__title">@Localizer["Saving account"]</h1>
+    <hr />
+}
+<div class="article__grid my-3">
+    @foreach (var item in Model)
+    {
+        if (item.accountType == "Saving")
+        {
+            <a class="article__item card" asp-action="Details" asp-route-id="@item.accountId">
+                <div class="card-body flex flex-jc-sb">
+                    <div>
+                        <h2 class="article__title">@Html.DisplayFor(modelItem => item.accountName)</h2>
+                        <h3 class="article__title">@Html.DisplayFor(modelItem => item.accountType)</h3>
+                        <h5 class="article__author">@Html.DisplayFor(modelItem => item.currencyType)</h5>
+                        <p class="article__description">3.00% p.a.</p>
+                    </div>
+                    @if (item.currencyType == "Zloty")
+                    {
+                        <p><i class="fa-solid fa-coins mx-2"></i>@item.amount.Value.ToString("C", new System.Globalization.CultureInfo("pl-PL"))</p>
+                    }
+                    else if (item.currencyType == "Eur")
+                    {
+                        <p><i class="fa-solid fa-coins mx-2"></i>@item.amount.Value.ToString("C", new System.Globalization.CultureInfo("eu-EU"))</p>
+                    }
+                    else
+                    {
+                        <p><i class="fa-solid fa-coins mx-2"></i>@item.amount.Value.ToString("C", new System.Globalization.CultureInfo("en-US"))</p>
+                    }
+                </div>
+            </a>
+        }
+    }
+</div>
+@if(Model.Count() < 6){
+<a class="button btn btn-link p-2 mx-2" asp-action="Create">
+        <svg class="bi"><use xlink:href="#plus-circle"></use></svg> @Localizer["Add account"]
+</a>
+}

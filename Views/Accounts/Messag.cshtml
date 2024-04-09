@@ -1,0 +1,21 @@
+﻿@model ThesisProject.Models.Transaction
+@{
+    ViewData["Title"] = "Inbox";
+}
+<div class="m-2 card">
+    <div class="row card-body">
+        <p class="col-sm-2 article__title">@Localizer["Type"]</p>
+        <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.Name)</p>
+        <p class="col-sm-2 article__title">@Localizer["Status"]</p>
+        <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.Status)</p>
+        <p class="col-sm-2 article__title">@Localizer["Description"]</p>
+        <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.Description)</p>
+        <p class="col-sm-2 article__title">@Localizer["Amount"]</p>
+        <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.amount) &nbsp; @Html.DisplayFor(model => model.currency)</p>
+        <p class="col-sm-2 article__title">@Localizer["Account number"]</p>
+        <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.accountNumber)</p>
+        <p class="col-sm-2 article__title">@Localizer["Date"]</p>
+        <p class="col-sm-10 article__description">@Html.DisplayFor(model => model.dateOfTransaction)</p>
+    </div>
+    <a class=" w-25 btn btn-link m-2" asp-action="Inbox">@Localizer["Back to list"]</a>
+</div>

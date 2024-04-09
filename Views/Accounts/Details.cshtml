@@ -1,0 +1,118 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ThesisProject.Areas.Identity.Data
+
+@inject UserManager<ThesisProjectUser> UserManager
+@model ThesisProject.Models.Account
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card my-2">
+    <div class="card-body flex flex-jc-sb">
+        <div>
+            <h3 class="article__title">@Html.DisplayFor(model => model.accountType)</h3>
+            <h5 class="article__author">@Html.DisplayFor(model => model.currencyType)</h5>
+        </div>
+        @if (Model.currencyType == "Zloty")
+        {
+            <p><i class="fa-solid fa-coins mx-2"></i>@Model.amount.Value.ToString("C", new System.Globalization.CultureInfo("pl-PL"))</p>
+        }
+        else if (Model.currencyType == "Eur")
+        {
+            <p><i class="fa-solid fa-coins mx-2"></i>@Model.amount.Value.ToString("C", new System.Globalization.CultureInfo("eu-EU"))</p>
+        }
+        else
+        {
+            <p><i class="fa-solid fa-coins mx-2"></i>@Model.amount.Value.ToString("C", new System.Globalization.CultureInfo("en-US"))</p>
+        }
+    </div>
+</div>
+
+<div class="card my-2">
+    <dl class="row card-body">
+        <dt class="col-sm-2">
+            @Localizer["Beneficiary"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ThesisProjectUser.name) &nbsp; @Html.DisplayFor(model => model.ThesisProjectUser.surName)
+        </dd>
+        <dt class="col-sm-2">
+            @Localizer["Account"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.accountNumber)
+        </dd>
+        <dt class="col-sm-2">
+            IBAN
+        </dt>
+        <dd class="col-sm-10">
+            ER @Html.DisplayFor(model => model.accountNumber)
+        </dd>
+        <dt class="col-sm-2">
+            BIC / SWIFT code
+        </dt>
+        <dd class="col-sm-10">
+            ERIC10
+        </dd>
+        <dt class="col-sm-2">
+            @Localizer["Bank Name and Address"]
+        </dt>
+        <dd class="col-sm-10">
+            EasyBank
+            Kigali-Rwanda
+        </dd>
+    </dl>
+</div>
+@if (Model.Card != null)
+{
+    <h3 class="article__title">@Localizer["Linked Card"]</h3>
+    <hr />
+    <div class="my-2">
+        <a asp-action="cardInfo" asp-route-id="@Model.Card.cardId">
+            <div class="article__item card button debitCard">
+                <div class="card-body flex flex-jc-sb">
+                    <div>
+                        <p class="" style="margin-bottom:3rem;">@Model.Card.cardName</p>
+                        <div class="card-content">
+                            <p class="article__description my-1">@Localizer["Card number"]</p>
+                            <p>@string.Format("{0:#### #### #### ####}", Model.Card.cardNumber)</p>
+                        </div>
+                        <div class="flex flex-jc-sb">
+                            <div>
+                                <p class="article__description my-1">@Localizer["Expiry date"]</p>
+                                <p>@Model.Card.expiryDate.ToString("MM/yy")</p>
+                            </div>
+                            <div>
+                                <p class="article__description my-1">CVV</p>
+                                <p>@Model.Card.cvv</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <p style="margin-bottom:8.685rem;">@Model.Card.cardStatus</p>
+                        <p class="m-0" style="text-align:right;">VISA</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+}
+<div class="my-2 flex flex-jc-sb">
+    <a class="button-reverse btn btn-link p-2 m-2" asp-action="AccountsInfo" asp-route-id="@UserManager.GetUserId(User)" class="nav-link link">@Localizer["Back to List"]</a>
+    @if (Model.accountType == "Saving")
+    {
+        <a class="button-reverse btn btn-link p-2 m-2" asp-action="Deposit" asp-route-id="@Model.accountId">
+            <i class="fa-solid fa-bag-shopping"></i> <p class="article__description">@Localizer["Save money"]</p>
+        </a>
+        <a class="button-reverse btn btn-link p-2 m-2" asp-action="Withdraw" asp-route-id="@Model.accountId">
+            <i class="fa-solid fa-money-bill"></i> <p class="article__description">@Localizer["Withdraw"]</p>
+        </a>
+        if (Model.amount == 0)
+        {
+            <a class="button-reverse btn btn-link p-2 m-2" asp-action="DeleteAccount" asp-route-id="@Model.accountId">
+                <i class="fa-solid fa-trash"></i> <p class="article__description">@Localizer["Close Account"]</p>
+            </a>
+        }
+    }
+</div>

@@ -1,0 +1,41 @@
+﻿@page
+@model ThesisProject.Areas.Identity.Pages.Account.Manage.AddressModel
+@{
+	ViewData["Title"] = "Address";
+	ViewData["ActivePage"] = ManageNavPages.AddAddress;
+}
+<h4>@ViewData["Title"]</h4>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="email-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.street" class="form-control" aria-required="true" placeholder="Please enter your street." />
+                <label asp-for="Input.street" class="form-label"></label>
+                <span asp-validation-for="Input.street" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.state" class="form-control" aria-required="true" placeholder="Please enter your state." />
+                <label asp-for="Input.state" class="form-label"></label>
+                <span asp-validation-for="Input.state" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.city" class="form-control" aria-required="true" placeholder="Please enter your city." />
+                <label asp-for="Input.city" class="form-label"></label>
+                <span asp-validation-for="Input.city" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.zipCode" class="form-control" aria-required="true" placeholder="Please enter your zipcode." />
+                <label asp-for="Input.zipCode" class="form-label"></label>
+                <span asp-validation-for="Input.zipCode" class="text-danger"></span>
+            </div>
+            <button id="Address-button" type="submit" asp-page-handler="Address" class="w-100 btn btn-lg btn-primary">Add Address</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

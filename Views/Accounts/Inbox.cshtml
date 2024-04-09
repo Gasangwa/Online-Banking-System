@@ -1,0 +1,61 @@
+﻿@model List<ThesisProject.Models.Transaction>
+@{
+    ViewData["Title"] = "Inbox";
+    var transactionsByDate = Model.GroupBy(t => t.dateOfTransaction.Date);
+}
+
+<div class="inbox my-3">
+    <div class="flex flex-jc-sb">
+        <h2 class="article__title">@Localizer["Inbox"]</h2>
+        <form asp-action="Inbox" class="d-flex" role="search">
+            <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit">@Localizer["Search"]</button>
+        </form>
+    </div>
+    @if (Model.Count == 0)
+    {
+        <div class="card messages my-2 p-3">
+            <div class="card-body text-center mt-5">
+                <i class="fa-regular fa-folder-open"></i>
+                <p class="article__description">@Localizer["Folder empty"]</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        @foreach (var group in transactionsByDate)
+        {
+            <h3 class="article__title">@group.Key.ToString("ddd dd/MM")</h3>
+            <hr />
+
+            @foreach (var item in group)
+            {
+                <a asp-action="Messag" asp-route-id="@item.Id">
+                    <div class="article__item card messages my-2 p-3">
+                        <p>@item.dateOfTransaction</p>
+                        <div class="flex flex-jc-sb">
+                            <div class="message">
+                                <p class="article__author">@item.Status</p>
+                                <p class="article__description">@item.Description</p>
+                            </div>
+                            <div class="money">
+                                @if (item.currency == "Zloty")
+                                {
+                                    <p><i class="fa-solid fa-coins mx-2"></i>@item.amount.ToString("C", new System.Globalization.CultureInfo("pl-PL"))</p>
+                                }
+                                else if (item.currency == "Eur")
+                                {
+                                    <p><i class="fa-solid fa-coins mx-2"></i>@item.amount.ToString("C", new System.Globalization.CultureInfo("eu-EU"))</p>
+                                }
+                                else
+                                {
+                                    <p><i class="fa-solid fa-coins mx-2"></i>@item.amount.ToString("C", new System.Globalization.CultureInfo("en-US"))</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+        }
+    }
+</div>

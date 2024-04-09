@@ -1,0 +1,24 @@
+﻿@model List<ThesisProject.Models.Account>
+@{
+    ViewData["Title"] = "Choose Account";
+}
+<h5 class="article__title m-1">@Localizer["Choose Account to Deposit money"]</h5>
+<hr />
+<div class="article__grid my-3">
+    @foreach (var item in Model)
+    {
+        <a class="article__item card" asp-action="Deposit" asp-route-id="@item.accountId">
+            <div class="card-body flex flex-jc-sb">
+                <div>
+                    <h3 class="article__title">@Html.DisplayFor(modelItem => item.accountType)</h3>
+                    <h5 class="article__author">@Html.DisplayFor(modelItem => item.currencyType)</h5>
+                    @if (item.accountType == "Saving")
+                    {
+                        <p class="article__description">3.00% p.a.</p>
+                    }
+                </div>
+                <p><i class="fa-solid fa-coins mx-2"></i>@Html.DisplayFor(modelItem => item.amount)</p>
+            </div>
+        </a>
+    }
+</div>

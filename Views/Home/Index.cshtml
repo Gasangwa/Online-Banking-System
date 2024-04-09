@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="hero">
+    <div class="container">
+        <div class="hero__img">
+        </div>
+        <div class="hero__text container--pall">
+            @Localizer["hero__text"]
+            <a id="register" asp-area="Identity" asp-page="/Account/Register" class="button btn btn-link border-0 hero__cta">@Localizer["Register"]</a>
+        </div>
+    </div>
+</section>
+<section class="feature">
+    <div class="feature__content container container--pall">
+        <div class="feature__intro">
+            @Localizer["feature__intro"]
+        </div>
+        <div class="feature__grid">
+            <div class="feature__item">
+                <div class="feature__icon">
+                    <img src="/images/icon-online.svg" alt="">
+                </div>
+                @Localizer["feature1"]
+            </div>
+
+            <div class="feature__item">
+                <div class="feature__icon">
+                    <img src="/images/icon-budgeting.svg" alt="">
+                </div>
+                @Localizer["feature2"]
+
+            </div>
+
+            <div class="feature__item">
+                <div class="feature__icon">
+                    <img src="/images/icon-onboarding.svg" alt="">
+                </div>
+                @Localizer["feature3"]
+
+            </div>
+
+            <div class="feature__item">
+                <div class="feature__icon">
+                    <img src="/images/icon-api.svg" alt="">
+                </div>
+                @Localizer["feature4"]
+            </div>
+        </div>
+    </div>
+</section>
+<section class="articles">
+    <div class="article__content container container--pall">
+        @Localizer["article__intro"]
+        <div class="article__grid">
+            <a href="#" class="article__item">
+                <div class="article__image" style="background-image: url('/images/image-currency.jpg');"></div>
+                <div class="article__text">
+                    @Localizer["article1"]
+                </div>
+            </a>
+            <a href="#" class="article__item">
+                <div class="article__image" style="background-image: url('/images/image-restaurant.jpg');"></div>
+                <div class="article__text">
+                    @Localizer["article2"]
+                </div>
+            </a>
+            <a href="#" class="article__item">
+                <div class="article__image" style="background-image: url('/images/image-plane.jpg');"></div>
+                <div class="article__text">
+                    @Localizer["article3"]
+                </div>
+            </a>
+            <a href="#" class="article__item">
+                <div class="article__image" style="background-image: url('/images/image-confetti.jpg');"></div>
+                <div class="article__text">
+                    @Localizer["article4"]
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+﻿
+@{
+    double? totalBalance = Context.Items["total"] as double?;
+}
+
+@if (totalBalance.HasValue)
+{
+    <div id="balance" class="navbar-nav flex-row shadow text-white mx-2">
+        <i class="fa-solid fa-wallet mx-2" style="
+               padding-top: 0.30rem;"></i>
+        @totalBalance.Value.ToString("C", new System.Globalization.CultureInfo("pl-PL"))
+    </div>
+}
+else
+{
+    <div id="balance" class="navbar-nav flex-row shadow text-white mx-2">
+        <i class="fa-solid fa-wallet mx-2" style="
+               padding-top: 0.30rem;"></i>
+        0 zlt
+    </div>
+}

@@ -1,0 +1,36 @@
+﻿@model ThesisProject.Models.Card
+
+@{
+	ViewData["title"] = "CreateCard";
+}
+
+<form asp-action="CreateCardi" class="w-25">
+	<div asp-validation-summary="ModelOnly" class="text-danger article__description"></div>
+    <div class="form-group my-2">
+        <select asp-for="cardName" id="cardType" class="form-select" aria-label="Card Name" onchange="toggleDisplay()">
+            <option value="Multi-currency">@Localizer["Multi-currency"]</option>
+            <option value="Virtual-Card">@Localizer["Virtual-Card"]</option>
+        </select>
+        <span asp-validation-for="cardName" class="text-danger article__description"></span>
+    </div>
+
+    <div class="form-group my-2" id="displayForCurrency" style="display: none;">
+        <select name="currencyType" class="form-select" aria-label="Currency Type">
+            <option value="Eur">Eur</option>
+            <option value="Dollar">Dollar</option>
+            <option value="Zloty">Zloty</option>
+        </select>
+        <span asp-validation-for="Account.currencyType" class="text-danger article__description"></span>
+    </div>
+	<div class="form-group my-2">
+		<input type="submit" value="@Localizer["Create"]" class="button btn" />
+	</div>
+</form>
+
+<script>
+	function toggleDisplay() {
+		var cardType = document.getElementById("cardType").value;
+		var displayDiv = document.getElementById("displayForCurrency");
+        displayDiv.style.display = (cardType === "Virtual-Card") ? "block" : "none";
+	}
+</script>

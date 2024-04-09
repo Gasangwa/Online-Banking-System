@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="article1" xml:space="preserve">
+    <value>&lt;div class="article__author"&gt;Autor: Claire Robinson&lt;/div&gt;&lt;div class="article__title"&gt;Otrzymuj pieniądze w dowolnej walucie bez opłat&lt;/div&gt;&lt;div class="article__description"&gt;Świat staje się coraz mniejszy, a my coraz bardziej mobilni. Dlaczego więc miałbyś być zmuszony do otrzymywania pieniędzy tylko w jednym...&lt;/div&gt;</value>
+  </data>
+  <data name="article2" xml:space="preserve">
+    <value>&lt;div class="article__author"&gt;Autor: Wilson Hutton&lt;/div&gt;&lt;div class="article__title"&gt;Zafunduj sobie przyjemność bez martwienia się o pieniądze&lt;/div&gt;&lt;div class="article__description"&gt;Nasza prosta funkcja budżetowania pozwala oddzielić wydatki i ustawić realistyczne limity każdego miesiąca. Oznacza to, że...&lt;/div&gt;</value>
+  </data>
+  <data name="article3" xml:space="preserve">
+    <value>&lt;div class="article__author"&gt;Autor: Wilson Hutton&lt;/div&gt;&lt;div class="article__title"&gt;Zabierz swoją kartę Easybank gdziekolwiek jesteś&lt;/div&gt;&lt;div class="article__description"&gt;Chcemy, abyś cieszył się swoimi podróżami. Dlatego nie pobieramy żadnych opłat za zakupy podczas pobytu za granicą. Pokażemy Ci nawet...&lt;/div&gt;</value>
+  </data>
+  <data name="article4" xml:space="preserve">
+    <value>&lt;div class="article__author"&gt;Autor: Claire Robinson&lt;/div&gt;&lt;div class="article__title"&gt;Nasze konta Beta dostępne tylko dla zaproszonych użytkowników są już dostępne&lt;/div&gt;&lt;div class="article__description"&gt;Po ciężkiej pracy całego zespołu, jesteśmy podekscytowani uruchomieniem zamkniętej bety. Łatwo jest poprosić o zaproszenie za pośrednictwem strony...&lt;/div&gt;</value>
+  </data>
+  <data name="article__intro" xml:space="preserve">
+    <value>&lt;h2&gt;Najnowsze artykuły&lt;/h2&gt;</value>
+  </data>
+  <data name="feature1" xml:space="preserve">
+    <value>&lt;div class="feature__title"&gt;Bankowość online&lt;/div&gt;&lt;div class="feature__description"&gt;Nasze nowoczesne aplikacje internetowe i mobilne pozwalają śledzić swoje finanse w dowolnym miejscu na świecie.&lt;/div&gt;</value>
+  </data>
+  <data name="feature2" xml:space="preserve">
+    <value>&lt;div class="feature__title"&gt;Proste budżetowanie&lt;/div&gt;&lt;div class="feature__description"&gt;Zobacz dokładnie, na co przeznaczasz pieniądze każdego miesiąca, otrzymuj powiadomienia, gdy jesteś bliski osiągnięcia swoich limitów.&lt;/div&gt;</value>
+  </data>
+  <data name="feature3" xml:space="preserve">
+    <value>&lt;div class="feature__title"&gt;Szybkie wdrożenie&lt;/div&gt;&lt;div class="feature__description"&gt;Nie prowadzimy oddziałów. Otwórz konto w kilka minut online i od razu zacznij kontrolować swoje finanse&lt;/div&gt;</value>
+  </data>
+  <data name="feature4" xml:space="preserve">
+    <value>&lt;div class="feature__title"&gt;Otwarte API&lt;/div&gt;&lt;div class="feature__description"&gt;Zarządzaj swoimi oszczędnościami, inwestycjami, emeryturą i nie tylko z jednego konta. Śledzenie pieniędzy nigdy nie było łatwiejsze&lt;/div&gt;</value>
+  </data>
+  <data name="feature__intro" xml:space="preserve">
+    <value>&lt;h2&gt;Dlaczego warto wybrać Easybank? &lt;/h2&gt;&lt;p&gt;Wykorzystujemy Open Banking, aby zmienić Twoje konto bankowe w centrum finansowe. Kontroluj swoje finanse jak nigdy dotąd.&lt;/p&gt;</value>
+  </data>
+  <data name="hero__text" xml:space="preserve">
+    <value>&lt;h1&gt;Bankowość cyfrowa nowej generacji&lt;/h1&gt;&lt;p&gt;Rozpocznij swoje życie finansowe online. Twoje konto Easybank będzie punktem kompleksowej obsługi w zakresie wydatków, oszczędzania, budżetowania, inwestowania i nie tylko.&lt;/p&gt;</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Rejestr</value>
+  </data>
+</root>
